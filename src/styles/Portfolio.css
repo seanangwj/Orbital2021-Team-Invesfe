@@ -1,0 +1,178 @@
+.header {
+  height: 20vh;
+  width: 100vw;
+  background-image: linear-gradient(
+      rgba(221, 224, 236, 0.4),
+      rgba(221, 224, 236, 0.4)
+    ),
+    url("../images/jewel.jpg");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.portfolio-guide {
+  text-align: left;
+  margin: 10px 10px;
+  font-size: 20px;
+  font-family: Lato,sans-serif;
+  font-weight: bold;
+}
+
+.portfolio-table {
+    border-collapse: collapse;
+    margin: 30px 10px;
+    font-size: 30px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    table-layout: fixed;
+}
+
+.portfolio-table thead tr {
+    background-color: rgb(13, 17, 58);
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+    padding: 30px 15px;
+    border: 2px solid black;
+}
+
+.holdings-table{ 
+  border: 1px thin lightgrey;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  table-layout: fixed;
+  font-size: 25px;
+}
+
+.holdings-table thead tr {
+    background-color: lightgrey;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+
+.holdings-table th,
+.holdings-table td {
+    padding: 30px 15px;
+    border: 1px thin lightgrey;
+}
+
+#term {
+  font-size: 30px;
+  font-weight: bold; 
+  font-style: italic;
+  margin-bottom: 20px;
+  color: red;
+}
+
+#terms-1 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: red;
+  text-align: center;
+}
+
+#terms{
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input.portfolio {
+/*for absolutely positioning spinners*/
+  position: relative; 
+  margin: 10px;
+  padding: 5px;
+  padding-right:25px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+      input.portfolio[type=number]::-webkit-inner-spin-button,
+      input.portfolio[type=number]::-webkit-outer-spin-button {
+        opacity: 1;
+      }
+
+      input.portfolio[type=number]::-webkit-outer-spin-button, 
+      input.portfolio[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: inner-spin-button !important;
+        width: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+      }
+
+input.portfolio:invalid {
+  border: 2px solid red;
+}
+
+input.portfolio:invalid+span:after {
+  content: '✖ Please input a positive number';
+  color: red;
+  padding-left: 5px;
+}
+
+input.portfolio:valid+span:after {
+  content: '✓';
+  padding-left: 5px;
+  color: green;
+}
+
+ .add-btn {
+    margin: 6px;
+    cursor: pointer;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+  }
+
+ .delete-btn {
+    margin: 15px;
+    cursor: pointer;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+  }
+
+.pie {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+  width: 400px;
+  height: 400px;  
+}
+
+.box {
+  flex-basis: 50%;
+  flex-grow: 0;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 5px 2px 5px 2px rgba(0, 0, 0, 0.7);
+  background:rgba(102, 216, 160, 1);
+  text-align: center;
+}
+

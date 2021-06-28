@@ -1,0 +1,141 @@
+.header {
+  height: 20vh;
+  width: 100vw;
+  background-image: linear-gradient(
+      rgba(221, 224, 236, 0.4),
+      rgba(221, 224, 236, 0.4)
+    ),
+    url("../images/jewel.jpg");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.form-group{
+    margin: 4px;
+}
+
+#note {
+  font-size: 18px;
+  font-weight: bold;
+}
+.budgetBox {
+  padding: 3px;
+  font-size: 25px;
+}
+
+.incomeBox {
+  padding: 10px;
+  font-size: 25px;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(13, 17, 58);
+    margin: 3px;
+}
+
+input[type=number] {
+/*for absolutely positioning spinners*/
+  position: relative; 
+  margin: 10px;
+  padding: 5px;
+  padding-right: 25px;
+  font-size: 25px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+input[type=number]::-webkit-outer-spin-button, 
+input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: inner-spin-button !important;
+        width: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+      }
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input.budget:invalid+span:after {
+  content: '✖ Please input a number between 0 and 100';
+  color: red;
+  padding-left: 5px;
+}
+
+input.income:invalid+span:after {
+    content: '✖ Please input a positive number';
+    color: red;
+    padding-left: 5px;
+  }
+
+input:valid+span:after {
+  content: '✓';
+  padding-left: 5px;
+  color: green;
+}
+
+.budget-btn {
+  background-color:#4caf50;
+  border: none;
+  color: white;
+  padding:20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.budget-table {
+    border-collapse: collapse;
+    margin: 30px 10px;
+    font-size: 30px;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    table-layout: fixed;
+}
+
+.budget-table thead tr {
+    background-color: rgb(13, 17, 58);
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.budget-table th,
+.budget-table td {
+    padding: 30px 15px;
+    border: 2px solid black;
+}
+
+.pie {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+
+.description h2 {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.description p {
+  margin: 25px;
+  font-size: 15px;
+  text-align: center;
+}

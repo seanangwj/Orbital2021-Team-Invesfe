@@ -1,0 +1,190 @@
+.header {
+  height: 20vh;
+  width: 100vw;
+  background-image: linear-gradient(
+      rgba(221, 224, 236, 0.4),
+      rgba(221, 224, 236, 0.4)
+    ),
+    url("../images/jewel.jpg");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: rgb(13, 17, 58);
+}
+
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #d5dadd;
+  border: 1px solid rgb(221, 202, 153);
+  padding: 12px 34px;
+  font-size: 15px;
+  background: rgb(104, 113, 212);
+  position: relative;
+  cursor: pointer;
+}
+nav {
+  display: flex;
+  padding: 2% 4%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 300px;
+}
+
+navbar {
+  flex: 1;
+  text-align: right;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.navbar ul li a {
+  color: rgb(13, 17, 58);
+  text-decoration: none;
+  font-size: 25px;
+  font: 200;
+}
+
+.navbar ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #e4d7d7;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: rgb(13, 17, 58);
+  padding: 16px;
+  font-size: 25px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(13, 17, 58);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(129, 126, 126);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #97979e;
+}
+
+.container {
+  width: 100vw;
+  height: 20vh;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title h1 {
+  text-transform: uppercase;
+  color: rgb(13, 17, 58);
+  font-size: 40px;
+}
+
+.title p {
+  margin-top: 10px;
+  color: black;
+  font-size: 20px;
+}
+
+.content {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  width: 250px;
+}
+
+.card h3 {
+  text-align: center;
+  padding: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(13, 17, 58);
+}
+
+.img_box {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img_box img {
+  width: 250px;
+}
+
+.description {
+  font-size: 28px;
+  text-align: center;
+  position: relative;
+  display: block;
+}
+
+.description p {
+    font-size: 22px;
+    text-align: center;
+    position:relative;
+    display: flex;
+  }
