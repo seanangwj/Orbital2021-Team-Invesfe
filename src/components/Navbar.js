@@ -1,39 +1,52 @@
+import React, { Component } from "react";
 import Tools from "./Tools";
 import logo from "../images/logo.png";
 import Home from "../Home";
-import { FirebaseAuthConsumer, IfFirebaseUnAuthed, IfFirebaseAuthed } from "@react-firebase/auth";
+import {
+  FirebaseAuthConsumer,
+  IfFirebaseUnAuthed,
+  IfFirebaseAuthed,
+} from "@react-firebase/auth";
 import { Button } from "@material-ui/core";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { fire } from "../config/Firebase";
 
-function NavBar(props) {
-
+function NavBar () {
   const handleGoogleSignIn = (firebase) => {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   };
 
-  
+  // constructor(props) {
+  //   super(props);
+  //   this.logout = this.logout.bind(this);
+  // }
+
   const handleLogout = (firebase) => {
     firebase.auth().signOut();
   };
 
-  return (
-    <nav>
-      <a href={Home}>
-        <img src={logo} />
-      </a>
-      <div class="navbar">
-        <ul>
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-          <Link to="/aboutus">ABOUT US</Link>
-          </li>
-          <Tools />
-          
-          <li>
-            <IfFirebaseUnAuthed>
+  // logout() {
+  //   fire.auth().signOut();
+  // }
+ 
+    return (
+      <nav>
+        <a href={Home}>
+          <img src={logo} />
+        </a>
+        <div class="navbar">
+          <ul>
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/aboutus">ABOUT US</Link>
+            </li>
+            <Tools />
+
+            <li>
+             <IfFirebaseUnAuthed>
             <FirebaseAuthConsumer>
               {({ firebase }) => (
                 <Button
@@ -53,17 +66,19 @@ function NavBar(props) {
             </Button>
           )}
         </IfFirebaseAuthed> 
-           
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-}
+              
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
+
 
 export default NavBar;
 
-{/* <IfFirebaseUnAuthed>
+{
+  /* <IfFirebaseUnAuthed>
             <FirebaseAuthConsumer>
               {({ firebase }) => (
                 <Button
@@ -82,4 +97,5 @@ export default NavBar;
               Logout
             </Button>
           )}
-        </IfFirebaseAuthed> */}
+        </IfFirebaseAuthed> */
+}

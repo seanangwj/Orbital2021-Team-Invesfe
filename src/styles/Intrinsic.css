@@ -75,11 +75,11 @@ input.intrinsic:valid+span:after {
 .value-table {
     border-collapse: collapse;
     margin: 25px 10px;
-    font-size: 30px;
+    font-size: 22px;
     border: 3px solid black;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
     table-layout: fixed;
 }
 
@@ -119,6 +119,22 @@ input.intrinsic:valid+span:after {
   margin-right: 45%;
 }
 
+.save-btn {
+  background-color:#6495ED;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 7%;
+  margin-left: 80%;
+  margin-right: 13%;
+}
+
 .valuation-table {
     border-collapse: collapse;
     margin: 30px 10px;
@@ -128,6 +144,38 @@ input.intrinsic:valid+span:after {
     margin-right: auto;
     width: 80%;
     table-layout: fixed;
+}
+
+.valuation-mid-table {
+    border-collapse: collapse;
+    margin: 15px 30px;
+    border: none;
+    margin-left: 10%;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.valuation-bottom-table {
+    border-collapse: collapse;
+    margin: 30px 30px;
+    border: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    table-layout: fixed;
+}
+
+.valuation-bottom-table thead tr {
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px 5px;
+}
+
+.valuation-bottom-table td {
+  font-size: 25px;
+  text-align: center;
 }
 
 .box {
