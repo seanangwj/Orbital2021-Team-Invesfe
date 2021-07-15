@@ -66,7 +66,7 @@ input:invalid {
 }
 
 input.budget:invalid+span:after {
-  content: '✖ Please input a number between 0 and 100';
+  content: '✖ Please input a number between 0 and 100 up to 2dp';
   color: red;
   padding-left: 5px;
 }
@@ -94,6 +94,10 @@ input:valid+span:after {
   font-size: 20px;
   border-radius: 20px;
   margin-bottom: 40px;
+}
+
+.budget-btn:hover{
+  background-color: forestgreen;
 }
 
 .budget-table {
@@ -138,4 +142,49 @@ input:valid+span:after {
   margin: 25px;
   font-size: 15px;
   text-align: center;
+}
+
+.budget-summary {
+  width: 300px;
+  font-size: 17px;
+  text-align: center;
+  padding: 5px 5px;
+}
+
+#dropdownMenuButton {
+  margin-top: 1px;
+  margin-right: 100px;
+}
+
+.reset-btn {
+    margin: 15px;
+    cursor: pointer;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.reset-btn:hover{
+  background-color: firebrick;
+}
+
+.form-control[type=text]{
+  height: 51px;
+}
+
+label{
+  font-size: 20px;
+  font-style: italic;
+}
+
+label[for=category] {
+  margin-right: 100px;
 }

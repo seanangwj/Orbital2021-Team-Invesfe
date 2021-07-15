@@ -1,5 +1,6 @@
 import { Tooltip, Icon, makeStyles } from "@material-ui/core";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import { IfFirebaseAuthed } from "@react-firebase/auth";
 import { useState, useEffect } from "react";
 import "../styles/Intrinsic.css";
 
@@ -36,8 +37,10 @@ const IntrinsicForm = (props) => {
   };
 
   const handleFormSubmit = (e) => {
+    if (window.confirm("Make sure you have clicked onto the calculate button before saving/updating!")) {
     e.preventDefault();
     props.addOrEdit(values);
+    }
   };
 
   var fcfeY1 =
@@ -60,12 +63,11 @@ const IntrinsicForm = (props) => {
       (projectedFCFE[4].value.toFixed(2) * (1 / (values.ror / 100))) /
       Math.pow(1 + values.ror / 100, 5);
     setValues({
-        ...values,
-        terminal: (projectedFCFE[4].value * (1 / (values.ror / 100))).toFixed(2),
-        intrinsic: (iv * 1).toFixed(2),
-        intrinsicps: (iv / values.shares).toFixed(2)
-      });
-
+      ...values,
+      terminal: (projectedFCFE[4].value * (1 / (values.ror / 100))).toFixed(2),
+      intrinsic: (iv * 1).toFixed(2),
+      intrinsicps: (iv / values.shares).toFixed(2),
+    });
   };
 
   for (let index = 1; index <= 5; index++) {
@@ -82,10 +84,10 @@ const IntrinsicForm = (props) => {
 
     customWidth: {
       width: 1200,
-      height: 250,
-      fontSize: 15,
+      fontSize: 18,
     },
   }));
+
   const classes = useStyles();
 
   const profit =
@@ -106,7 +108,10 @@ const IntrinsicForm = (props) => {
     "Required rate of return is the minimum amount of return an investor will seek for assuming the risk of investment. There is no right number and it depends on each individual. You would need to consider factors like the return of market as a whole and also rate if you took no risk. You could use long-term government bonds rate or the 10-year treasury yield as the risk free rate. We would recommend any rate between 5-7%";
   const growth =
     "This growth rate is dependent on each individual own analysis on the company as they estimate the rate of growth of the company free cash flow. A more aggressive investment on a growing company would have a larger growth rate while a more conservative investment would have a smaller growth rate.";
-
+  const terminal =
+    "Terminal Value is the value of an asset or business beyond the forecasted period of when future cash flow can be projected and estimated. It assumes the business will grow at a set rate after the forecast period and is mostly used in discounted cash flow model.";
+  const intrinsic =
+    "Intrinsic value is a measure of what an asset or business is worth. It is measured by financial model and calculations rather than using the currently market price of that asset.";
   return (
     <>
       <form autoComplete="off" onSubmit={handleFormSubmit}>
@@ -213,7 +218,7 @@ const IntrinsicForm = (props) => {
                   Capital Expenditure ($) :{" "}
                   {
                     <Tooltip
-                      title={values.capex}
+                      title={capex}
                       classes={{ tooltip: classes.customWidth }}
                     >
                       <Icon>
@@ -296,7 +301,7 @@ const IntrinsicForm = (props) => {
                   No. of Outstanding Shares :{" "}
                   {
                     <Tooltip
-                      title={values.shares}
+                      title={shares}
                       classes={{ tooltip: classes.customWidth }}
                     >
                       <Icon>
@@ -373,14 +378,15 @@ const IntrinsicForm = (props) => {
             </tr>
           </tbody>
         </table>
-
-        <div>
-          <input
-            type="submit"
-            value={props.currentId == "" ? "Save" : "Update"}
-            className="save-btn"
-          />
-        </div>
+        <IfFirebaseAuthed>
+          <div>
+            <input
+              type="submit"
+              value={props.currentId == "" ? "Save" : "Update"}
+              className="save-btn"
+            />
+          </div>
+        </IfFirebaseAuthed>
       </form>
       <button
         className="intrinsic-btn"
@@ -393,7 +399,18 @@ const IntrinsicForm = (props) => {
         <tr>
           <td>
             <label className="labelBox">
-              Terminal Value =
+              Terminal Value
+              {
+                <Tooltip
+                  title={terminal}
+                  classes={{ tooltip: classes.customWidth }}
+                >
+                  <Icon>
+                    <HelpOutlineIcon className={classes.icon} />
+                  </Icon>
+                </Tooltip>
+              }
+              =
               <input
                 type="number"
                 id="terminal"
@@ -415,7 +432,18 @@ const IntrinsicForm = (props) => {
             </label>
             <br></br>
             <label className="final-labelBox">
-              Intrinsic Value per Share =
+              Intrinsic Value per Share
+              {
+                <Tooltip
+                  title={intrinsic}
+                  classes={{ tooltip: classes.customWidth }}
+                >
+                  <Icon>
+                    <HelpOutlineIcon className={classes.icon} />
+                  </Icon>
+                </Tooltip>
+              }
+              =
               <input
                 type="number"
                 id="intrinsicps"

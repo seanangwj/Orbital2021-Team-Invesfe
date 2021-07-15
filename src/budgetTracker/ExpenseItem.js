@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
-import { AppContext } from './AppContext';
+import { AppContext } from './AppContext';	
 
 const ExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);

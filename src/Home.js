@@ -1,11 +1,24 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import NavBar from "./components/Navbar";
 import background from "./images/jewel.jpg";
 import { Route, Link } from "react-router-dom";
 import "./styles/Home.css";
+import { UserContext } from "./components/UserContext";
 
 
 function Home() {
+
+  const currentUser = useContext(UserContext);
+  
+
+  const getName = (() => {
+    if (currentUser) {
+     return " " + currentUser.displayName + " ";
+    } else {
+      return " "
+    }
+  })
+
   return (
     <>
     <head>
@@ -26,7 +39,7 @@ function Home() {
         }}
       >
         <div className="text-box">
-          <h1>Welcome to Invesfe</h1>
+          <h1>Welcome {getName()}to Invesfe</h1>
           <p>
             All-in-one online platform to formulate and create your own
             investment framework

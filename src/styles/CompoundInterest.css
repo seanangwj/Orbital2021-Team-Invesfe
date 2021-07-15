@@ -87,12 +87,16 @@
     border: none;
     border-radius: 4px;
     color: white;
-    padding: 15px 32px;
+    padding: 14px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
   }
+
+  button:hover{
+  background-color: forestgreen;
+}
   
   .flex {
     display: flex;
@@ -159,7 +163,7 @@ input.variables:invalid {
 }
 
 input.variables:invalid+span:after {
-  content: '✖ Please input a number >= 0';
+  content: '✖ Please input a valid number';
   color: red;
   padding-left: 20px;
 }

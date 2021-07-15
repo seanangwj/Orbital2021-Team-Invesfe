@@ -1,11 +1,25 @@
 import * as React from "react";
-import defaultState from "./defaultStateBudget";
 import "../styles/Budget.css";
+import {useEffect, useContext, useState} from "react";
+import { db, fire } from "../config/Firebase.js";
+import { UserContext} from "./UserContext";
 
-function BudgetForm({ onUpdate }) {
-  const [state, setState] = React.useState(defaultState);
+function BudgetForm(props) {
+  const [state, setState] = useState(props.state);
+  const currentUser = useContext(UserContext);
 
-  const { newIncome, newNeeds, newWants, newFinancialGoals } = state;
+  // const { newIncome, newNeeds, newWants, newFinancialGoals } = state;
+
+  useEffect(() => {
+    if (currentUser != null) {
+      db.child("users")
+        .child(currentUser.uid)
+        .child("budget")
+        .on("value", (snapshot) => {
+        const array = snapshot.val();
+        setState(array);
+    });
+  }}, []);
 
   return (
     <body>
@@ -15,12 +29,13 @@ function BudgetForm({ onUpdate }) {
           <input
             className="income"
             type="number"
-            value={newIncome}
+            value={state.newIncome}
             min="0"
+            step="0.01"
             onChange={({ target }) =>
               setState({ ...state, newIncome: Number(target.value) })
             }
-            readonly
+            
           />
           <span class="validity"></span>
         </label>
@@ -34,13 +49,14 @@ function BudgetForm({ onUpdate }) {
           <input
             className="budget"
             type="number"
-            value={newNeeds}
+            value={state.newNeeds}
+            step="0.01"
             min="0"
             max="100"
             onChange={({ target }) =>
               setState({ ...state, newNeeds: Number(target.value) })
             }
-            readonly
+            
           />
           <span class="validity"></span>
         </label>
@@ -51,13 +67,14 @@ function BudgetForm({ onUpdate }) {
           <input
             className="budget"
             type="number"
-            value={newWants}
+            value={state.newWants}
+            step="0.01"
             min="0"
             max="100"
             onChange={({ target }) =>
               setState({ ...state, newWants: Number(target.value) })
             }
-            readonly
+            
           />
           <span class="validity"></span>
         </label>
@@ -68,13 +85,14 @@ function BudgetForm({ onUpdate }) {
           <input
             class="budget"
             type="number"
-            value={newFinancialGoals}
+            value={state.newFinancialGoals}
+            step="0.01"
             min="0"
             max="100"
             onChange={({ target }) =>
               setState({ ...state, newFinancialGoals: Number(target.value) })
             }
-            readonly
+            
           />
           <span class="validity"></span>
         </label>
@@ -84,8 +102,8 @@ function BudgetForm({ onUpdate }) {
         <button
           className="budget-btn"
           onClick={() =>
-            canUpdate(newIncome, newNeeds, newWants, newFinancialGoals) ? (
-              onUpdate(state)
+            canUpdate(state.newIncome, state.newNeeds, state.newWants, state.newFinancialGoals) ? (
+              props.updateVariables(state)
             ) : (
               <p>Invalid Inputs </p>
             )
@@ -95,7 +113,7 @@ function BudgetForm({ onUpdate }) {
         </button>
         </div>
         <div className='col-sm'>
-        {canUpdate(newIncome, newNeeds, newWants, newFinancialGoals) ? (
+        {canUpdate(state.newIncome, state.newNeeds, state.newWants, state.newFinancialGoals) ? (
           <p id="terms">Valid Inputs</p>
         ) : (
           <p id="terms">Invalid Inputs, please ensure the allocation adds up to 100% </p>

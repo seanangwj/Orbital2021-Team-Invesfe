@@ -1,34 +1,14 @@
-import React, { Component } from "react";
+import React,  { useContext } from "react";
 import Tools from "./Tools";
 import logo from "../images/logo.png";
 import Home from "../Home";
-import {
-  FirebaseAuthConsumer,
-  IfFirebaseUnAuthed,
-  IfFirebaseAuthed,
-} from "@react-firebase/auth";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { fire } from "../config/Firebase";
+import AuthState from "../config/AuthState";
+import { UserContext } from "./UserContext";
 
-function NavBar () {
-  const handleGoogleSignIn = (firebase) => {
-    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(googleAuthProvider);
-  };
-
-  // constructor(props) {
-  //   super(props);
-  //   this.logout = this.logout.bind(this);
-  // }
-
-  const handleLogout = (firebase) => {
-    firebase.auth().signOut();
-  };
-
-  // logout() {
-  //   fire.auth().signOut();
-  // }
+function NavBar() {
+  
+  const currentUser = useContext(UserContext);
  
     return (
       <nav>
@@ -44,30 +24,10 @@ function NavBar () {
               <Link to="/aboutus">ABOUT US</Link>
             </li>
             <Tools />
-
-            <li>
-             <IfFirebaseUnAuthed>
-            <FirebaseAuthConsumer>
-              {({ firebase }) => (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleGoogleSignIn(firebase)}
-                >
-                  Sign in with Google
-                </Button>
-              )}
-            </FirebaseAuthConsumer>
-            </IfFirebaseUnAuthed>
-            <IfFirebaseAuthed>
-          {({ user, firebase }) => (
-            <Button color="inherit" onClick={() => handleLogout(firebase)}>
-              Logout
-            </Button>
-          )}
-        </IfFirebaseAuthed> 
-              
+            <li> 
+            <AuthState/>
             </li>
+           
           </ul>
         </div>
       </nav>
@@ -77,25 +37,3 @@ function NavBar () {
 
 export default NavBar;
 
-{
-  /* <IfFirebaseUnAuthed>
-            <FirebaseAuthConsumer>
-              {({ firebase }) => (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleGoogleSignIn(firebase)}
-                >
-                  Sign in with Google
-                </Button>
-              )}
-            </FirebaseAuthConsumer>
-            </IfFirebaseUnAuthed>
-            <IfFirebaseAuthed>
-          {({ user, firebase }) => (
-            <Button color="inherit" onClick={() => handleLogout(firebase)}>
-              Logout
-            </Button>
-          )}
-        </IfFirebaseAuthed> */
-}

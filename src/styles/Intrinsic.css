@@ -61,7 +61,7 @@ input.intrinsic:invalid {
 }
 
 input.intrinsic:invalid+span:after {
-  content: '✖ Please input a positive number';
+  content: '✖ Please input a val number';
   color: red;
   padding-left: 5px;
 }
@@ -77,8 +77,7 @@ input.intrinsic:valid+span:after {
     margin: 25px 10px;
     font-size: 22px;
     border: 3px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 30%;
     width: 100%;
     table-layout: fixed;
 }
@@ -119,8 +118,12 @@ input.intrinsic:valid+span:after {
   margin-right: 45%;
 }
 
+.intrinsic-btn:hover{
+  background-color: forestgreen;
+}
+
 .save-btn {
-  background-color:#6495ED;
+  background-color: #0069d9;
   border: none;
   color: white;
   padding: 10px;
@@ -133,6 +136,10 @@ input.intrinsic:valid+span:after {
   width: 7%;
   margin-left: 80%;
   margin-right: 13%;
+}
+
+.save-btn:hover{
+  background-color: #0063cc;
 }
 
 .valuation-table {
@@ -151,7 +158,7 @@ input.intrinsic:valid+span:after {
     margin: 15px 30px;
     border: none;
     margin-left: 10%;
-    width: 100%;
+    width: 90%;
     table-layout: fixed;
 }
 
@@ -178,12 +185,8 @@ input.intrinsic:valid+span:after {
   text-align: center;
 }
 
-.box {
-  flex-basis: 50%;
-  flex-grow: 0;
-  margin: 1rem;
-  padding: 1rem;
-  box-shadow: 5px 2px 5px 2px rgba(0, 0, 0, 0.7);
-  background: lightgray;
+#underline {
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 22px;
 }
-

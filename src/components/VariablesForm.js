@@ -1,10 +1,25 @@
 import * as React from "react";
-import defaultState from "./defaultState";
+import { useEffect, useContext, useState } from "react";
+import { db, fire } from "../config/Firebase.js";
+import { UserContext} from "./UserContext";
 
-function VariablesForm({ onUpdate }) {
-  const [state, setState] = React.useState(defaultState);
+function VariablesForm(props) {
+  // const variableArray = props.state;
+  const [state, setState] = useState(props.state)
+  const currentUser = useContext(UserContext);
 
-  const { initialAmount, period, growthRate, yearlyContribution } = state;
+  useEffect(() => {
+    if (currentUser != null) {
+      db.child("users")
+        .child(currentUser.uid)
+        .child("compound")
+        .on("value", (snapshot) => {
+        const array = snapshot.val();
+        setState(array);
+    });
+  }}, []);
+
+  // const { initialAmount, period, growthRate, yearlyContribution } = state;
 
   return (
     <section>
@@ -15,9 +30,10 @@ function VariablesForm({ onUpdate }) {
           className = "variables"
             type="number"
             id="initialAmount"
+            step="0.01"
             min = "0"
             name="initialAmount"
-            value={initialAmount}
+            value={state.initialAmount}
             onChange={({ target }) => setState({ ...state, initialAmount: Number(target.value) })}
           />
           <span class="validity"></span>
@@ -30,7 +46,7 @@ function VariablesForm({ onUpdate }) {
             id="period"
             min = "0"
             name="period"
-            value={period}
+            value={state.period}
             onChange={({ target }) => setState({ ...state, period: Number(target.value) })}
           />
           <span class="validity"></span>
@@ -42,8 +58,9 @@ function VariablesForm({ onUpdate }) {
             type="number"
             id="growthRate"
             min = "0"
+            step="0.01"
             name="growthRate"
-            value={growthRate}
+            value={state.growthRate}
             onChange={({ target }) => setState({ ...state, growthRate: Number(target.value) })}
           />
           <span class="validity"></span>
@@ -54,9 +71,10 @@ function VariablesForm({ onUpdate }) {
           className = "variables"
             type="number"
             id="yearlyContribution"
+            step="0.01"
             min = "0"
             name="yearlyContribution"
-            value={yearlyContribution}
+            value={state.yearlyContribution}
             onChange={({ target }) =>
               setState({ ...state, yearlyContribution: Number(target.value) })
             }
@@ -64,7 +82,7 @@ function VariablesForm({ onUpdate }) {
           <span class="validity"></span>
         </label>
       </div>
-      <button type="button" onClick={() => onUpdate(state)}>
+      <button type="button" onClick={() => props.updateVariables(state)}>
         Update Chart
       </button>
     </section>

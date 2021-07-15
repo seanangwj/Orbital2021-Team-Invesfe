@@ -8,14 +8,16 @@ import { firebase } from "@firebase/app";
 import "@firebase/auth";
 import { config } from "./config/Firebase";
 import { BrowserRouter } from "react-router-dom";
-
+import {UserProvider} from "./components/UserContext";
 
 ReactDOM.render(
+  <UserProvider>
   <FirebaseAuthProvider {...config} firebase={firebase}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    </FirebaseAuthProvider>,
+    </FirebaseAuthProvider>
+    </UserProvider>,
   document.getElementById("root")
 );
 

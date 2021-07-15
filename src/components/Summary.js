@@ -12,7 +12,7 @@ function Summary({ period, data }) {
       
         <div id="summary">In {period} years, you will have ${toNumber(data[data.length - 1].value)}</div> 
       
-      <br></br><h3>Breakdown</h3>
+      <br></br><h3 id="subheader">Breakdown</h3>
       <table className = "summary-table">
         <thead>
           <tr>

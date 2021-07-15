@@ -10,7 +10,7 @@ function Tools() {
               Budget Planner
               </Link>
               <Link to="/intrinsicvalue">
-              Intrinsic Value Calculator
+              Valuation Model
               </Link>
               <Link to="/compoundinterest">
               Compound Growth Calculator

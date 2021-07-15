@@ -11,6 +11,9 @@ import {
 } from "recharts";
 
 import Summary from "./Summary";
+import { useEffect, useContext, useState } from "react";
+import { db, fire } from "../config/Firebase.js";
+import { UserContext } from "./UserContext";
 
 function renderTooltip({ payload }) {
   if (!payload[0]) {
@@ -20,29 +23,44 @@ function renderTooltip({ payload }) {
   return <span>{`£${payload[0].value.toFixed(2)}`}</span>;
 }
 
-function CompoundInterestChart({ initialAmount, period, growthRate, yearlyContribution }) {
+function CompoundInterestChart(props) {
+  const [state, setState] = useState(props.state);
+  const currentUser = useContext(UserContext);
+
+  useEffect(() => {
+    if (currentUser != null) {
+      db.child("users")
+        .child(currentUser.uid)
+        .child("compound")
+        .on("value", (snapshot) => {
+        const array = snapshot.val();
+        setState(array);
+    });
+  }}, []);
+
+  // const {initialAmount,period,growthRate,yearlyContribution } = props;
   const data = React.useMemo(
     () => {
       const result = [];
       result.push({
         label: `0`,
-        value: initialAmount
+        value: state.initialAmount
       })
 
-      for (let i = 1; i <= period; i++) {
-        let lastFutureValue = initialAmount + yearlyContribution;
+      for (let i = 1; i <= state.period; i++) {
+        let lastFutureValue = state.initialAmount + state.yearlyContribution;
         if (result.length > 0) {
-          lastFutureValue = result[result.length - 1].value + yearlyContribution;
+          lastFutureValue = result[result.length - 1].value + state.yearlyContribution;
         }
         result.push({
           label: `${i}`,
-          value: lastFutureValue * Math.pow(1 + growthRate / 100, 1)
+          value: lastFutureValue * Math.pow(1 + state.growthRate / 100, 1)
         });
       }
 
       return result;
     },
-    [initialAmount, period, growthRate, yearlyContribution]
+    [state.initialAmount, state.period, state.growthRate, state.yearlyContribution]
   );
 
   return (
@@ -72,7 +90,7 @@ function CompoundInterestChart({ initialAmount, period, growthRate, yearlyContri
         </ResponsiveContainer>
       </div>
       <hr />
-      <Summary period={period} data={data} />
+      <Summary period={state.period} data={data} />
     </>
   );
 }
