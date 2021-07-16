@@ -98,7 +98,20 @@
   background-color: forestgreen;
 }
   
-  .flex {
+.load-btn {
+  background-color: #0069d9;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 15px;
+  width: 15%;
+  margin-left: 85%;
+}
+  .flex { 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

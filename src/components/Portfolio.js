@@ -92,8 +92,8 @@ function Portfolio() {
     },
 
     customWidth: {
-      width: 1200,
-      fontSize: 15,
+      width: 1500,
+      fontSize: 20,
     },
 
     paper: {
@@ -119,20 +119,28 @@ function Portfolio() {
 
   const allWeather = (
     <ul>
-      <li>30% total stock market</li>
-      <li>40% long-term bonds</li>
-      <li>15% intermediate bonds</li>
-      <li>7.5% commodities</li>
-      <li>7.5% gold</li>
+      30% total stock market
+      <br></br>
+      40% long-term bonds
+      <br></br>
+      15% intermediate bonds
+      <br></br>
+      7.5% commodities
+      <br></br>
+      7.5% gold
     </ul>
   );
   const ivy = (
     <ul>
-      <li>20% US stocks</li>
-      <li>20% international stocks</li>
-      <li>20% bonds</li>
-      <li>20% commodities</li>
-      <li>20% REITs (Real Estate Investment Trust)</li>
+      20% US stocks
+      <br></br>
+      20% international stocks
+      <br></br>
+      20% bonds
+      <br></br>
+      20% commodities
+      <br></br>
+      20% REITs (Real Estate Investment Trust)
     </ul>
   );
 

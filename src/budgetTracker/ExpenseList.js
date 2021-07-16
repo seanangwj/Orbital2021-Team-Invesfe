@@ -40,8 +40,9 @@ const ExpenseList = () => {
     );
     setfilteredExpenses(searchResults);
   };
-  const handleReset = () => {
+  const handleReset = (e) => {
     if (window.confirm("Are you sure to reset?")) {
+      // e.preventDefault();
 		window.location.reload();
 		// history.go(0);
       if (currentUser != null) { 
@@ -52,6 +53,8 @@ const ExpenseList = () => {
           .child("expenseTotal")
           .set([])
       }
+    } else {
+      e.preventDefault();
     }
   };
   return (
@@ -74,7 +77,7 @@ const ExpenseList = () => {
       </ul>
 
       <IfFirebaseAuthed>
-        <button className="reset-btn" onClick={() => handleReset()}>
+        <button className="reset-btn" onClick={(event) => handleReset(event)}>
           Reset
         </button>
       </IfFirebaseAuthed>

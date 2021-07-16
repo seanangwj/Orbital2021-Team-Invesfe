@@ -14,8 +14,8 @@ function CompoundInterest() {
     initialAmount: 4000,
     period: 10,
     growthRate: 5,
-    yearlyContribution: 1000
-  })
+    yearlyContribution: 1000,
+  });
   const currentUser = useContext(UserContext);
 
   // useEffect(() => {
@@ -24,16 +24,12 @@ function CompoundInterest() {
   //   }
   // });
 
-
   const updateVariables = (variables) => {
-    setState(variables)
+    setState(variables);
     if (currentUser != null) {
-      db.child("users")
-    .child(currentUser.uid)
-    .child("compound")
-    .set(variables)
+      db.child("users").child(currentUser.uid).child("compound").set(variables);
     }
-  }
+  };
 
   return (
     <div>

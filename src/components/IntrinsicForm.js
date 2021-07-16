@@ -3,6 +3,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { IfFirebaseAuthed } from "@react-firebase/auth";
 import { useState, useEffect } from "react";
 import "../styles/Intrinsic.css";
+import {useHistory} from "react-router-dom";
 
 const IntrinsicForm = (props) => {
   const initialFieldValues = {
@@ -17,6 +18,8 @@ const IntrinsicForm = (props) => {
     ror: "",
     growth: "",
   };
+
+
 
   const [values, setValues] = useState(initialFieldValues);
 
@@ -40,6 +43,9 @@ const IntrinsicForm = (props) => {
     if (window.confirm("Make sure you have clicked onto the calculate button before saving/updating!")) {
     e.preventDefault();
     props.addOrEdit(values);
+    } else {
+      // history.push('/intrinsicvalue');
+      e.preventDefault();
     }
   };
 
@@ -412,7 +418,7 @@ const IntrinsicForm = (props) => {
               }
               =
               <input
-                type="number"
+                type="text"
                 id="terminal"
                 name="terminal"
                 value={values.terminal}
@@ -423,7 +429,7 @@ const IntrinsicForm = (props) => {
             <label className="labelBox">
               Intrinsic Value For Company =
               <input
-                type="number"
+                type="text"
                 id="intrinsicfc"
                 name="intrinsicfc"
                 value={values.intrinsic}
@@ -445,7 +451,7 @@ const IntrinsicForm = (props) => {
               }
               =
               <input
-                type="number"
+                type="text"
                 id="intrinsicps"
                 name="intrinsicps"
                 value={values.intrinsicps}

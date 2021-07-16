@@ -16,7 +16,6 @@ function AboutUs() {
 
         <div className="container">
           <div className="title">
-            <h1>Our Team</h1>
             <div className ="description">
               Team Invesfe came about when the two of us decided to take part in
               Orbital, which is a NUS School of Computing’s 1st year summer
