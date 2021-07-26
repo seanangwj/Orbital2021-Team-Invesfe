@@ -3,7 +3,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { IfFirebaseAuthed } from "@react-firebase/auth";
 import { useState, useEffect } from "react";
 import "../styles/Intrinsic.css";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const IntrinsicForm = (props) => {
   const initialFieldValues = {
@@ -18,8 +18,6 @@ const IntrinsicForm = (props) => {
     ror: "",
     growth: "",
   };
-
-
 
   const [values, setValues] = useState(initialFieldValues);
 
@@ -40,9 +38,13 @@ const IntrinsicForm = (props) => {
   };
 
   const handleFormSubmit = (e) => {
-    if (window.confirm("Make sure you have clicked onto the calculate button before saving/updating!")) {
-    e.preventDefault();
-    props.addOrEdit(values);
+    if (
+      window.confirm(
+        "Make sure you have clicked onto the calculate button before saving/updating!"
+      )
+    ) {
+      e.preventDefault();
+      props.addOrEdit(values);
     } else {
       // history.push('/intrinsicvalue');
       e.preventDefault();
@@ -101,19 +103,19 @@ const IntrinsicForm = (props) => {
   const depre =
     "Amortisation is the practice of spreading an intangible asset's over that asset's useful life. E.g. patents and trademarks. Depreciation is the allocation of cost of a fixed asset over its useful life. These financial data can be found in the income statement.";
   const working =
-    "Working capital represents the difference between a firm's current assets and current liabilities and also the amount of money company has to pay off its short-term expenses. These financial data can be found in the cash flow statement.";
+    "Working capital represents the difference between a firm's current assets and current liabilities or the amount of money company has to pay off its short-term expenses. To find increase in working capital, take the current assets - current liabilities for the current financial year minus off the previous one. These financial data can be found in the cash flow statement.";
   const capex =
     "Capital Expenditure (CapEx) are funds used by a company to acquire, upgrade and maintain its physical assets like buildings. CapEx is essential for investment for growth. This financial data can be found in the cash flow statement.";
   const debt =
     "Debt repayment is the act of paying money back on a company's existing debt that includes the principal sum and interest. This involves cash outflow of the company. This financial data can be found in the cash flow statement.";
   const fresh =
-    "Debt raised is a financing transaction involving cash inflow to the company for its operations. This financial data can be foundin the cash flow statement.";
+    "Debt raised is a financing transaction involving cash inflow to the company for its operations. It can also be calculated by difference in debt from two financial years. This financial data can be found in the cash flow statement.";
   const shares =
     "Number of outstanding shares is simply the total number of shares issued and held by stockholders - both external and coportate investors. This can be found in the balance sheet.";
   const ror =
-    "Required rate of return is the minimum amount of return an investor will seek for assuming the risk of investment. There is no right number and it depends on each individual. You would need to consider factors like the return of market as a whole and also rate if you took no risk. You could use long-term government bonds rate or the 10-year treasury yield as the risk free rate. We would recommend any rate between 5-7%";
+    "Required rate of return is the minimum amount of return an investor will seek for assuming the risk of investment. There is no right number and it depends on each individual. You would need to consider factors like the return of market as a whole and also rate if you took no risk. You could use long-term government bonds rate or the 10-year treasury yield as the risk free rate. We would recommend any rate between 4-6%";
   const growth =
-    "This growth rate is dependent on each individual own analysis on the company as they estimate the rate of growth of the company free cash flow. A more aggressive investment on a growing company would have a larger growth rate while a more conservative investment would have a smaller growth rate.";
+    "This growth rate is dependent on each individual own analysis on the company as they estimate the rate of growth of the company free cash flow. A more aggressive investment on a growing company would have a larger growth rate while a more conservative investment would have a smaller growth rate. You can also take the company's average increase in free cash flow for the past years.";
   const terminal =
     "Terminal Value is the value of an asset or business beyond the forecasted period of when future cash flow can be projected and estimated. It assumes the business will grow at a set rate after the forecast period and is mostly used in discounted cash flow model.";
   const intrinsic =

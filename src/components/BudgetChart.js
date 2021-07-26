@@ -16,7 +16,9 @@ function BudgetChart(props) {
         .child("budget")
         .on("value", (snapshot) => {
         const array = snapshot.val();
+        if(array != null){
         setNewState(array);
+        }
     });
   }}, []);
   const state = {

@@ -20,7 +20,6 @@ function App() {
         <Route exact path="/intrinsicvalue" component={IntrinsicValue} />
         <Route exact path="/portfolio" component={Portfolio} />
         <Route exact path="/aboutus" component={AboutUs} />
-        <Route exact path="/login" component={Login} />
       </Router>
     </div>
   );

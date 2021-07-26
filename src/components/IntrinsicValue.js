@@ -152,7 +152,8 @@ function IntrinsicValue() {
         <div className="intrinsic-guide">
           To start, hover your cursor over the ? icon at each financial term to
           understand them and also figure out how to find these data on the
-          company's financial reports. After keying in all the data, the table
+          company's financial reports. You can always google search or visit yahoo finance for the specific data if you are unable to find the relevant data in the financial reports.
+          After keying in all the data, the table
           will display the cash flow projections for the next 5 years. The final
           intrinsic value per share of a company can be found at the bottom
           highlighted in red.

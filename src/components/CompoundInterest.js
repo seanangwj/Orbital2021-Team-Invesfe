@@ -18,11 +18,6 @@ function CompoundInterest() {
   });
   const currentUser = useContext(UserContext);
 
-  // useEffect(() => {
-  //   if (currentUser != null) {
-  //     db.child("users").child(currentUser.uid).child("compound").set(state);
-  //   }
-  // });
 
   const updateVariables = (variables) => {
     setState(variables);

@@ -7,6 +7,7 @@ import * as React from "react";
 import BudgetSummary from "../budgetTracker/BudgetSummary";
 import { db, fire } from "../config/Firebase.js";
 import { UserContext } from "./UserContext";
+import { IfFirebaseAuthed } from "@react-firebase/auth";
 
 function Budget() {
   const [state, setState] = useState({newIncome: 4000,
@@ -59,39 +60,14 @@ function Budget() {
         </tbody>
       </table>
 
+      <IfFirebaseAuthed>
+
       <BudgetSummary
         state={state}
       />
+      </IfFirebaseAuthed>
 
-      {/* <section className="description">
-        <h2> Guide and Relative information </h2>
-        <p>
-          Start by indicating your disposable income and the following inputs: needs, wants and financial goals, according to your own preference.
-          From this allocation, you should know roughly how much you are able to contribute to your investments. Head over to our compound growth calculator
-          to see how much you can grow you money!
-          <br></br>{" "}
-        </p>
-        <h3> Needs </h3>
-        <u1>
-          <li>Rent</li>
-          <li>Groceries</li>
-        </u1>
-        <h3> Wants </h3>
-        <u1>
-          <li>Entertainment Services </li>
-          <li>Hobbies </li>
-        </u1>
-        <h3> Financial Goals </h3>
-        <u1>
-          <li>Savings </li>
-          <li>Investment </li>
-        </u1>
-        <p>
-          {" "}
-          As with all budgetting rules out there, this is only a rough guide and
-          you can make your own adjustments to better suit your needs!{" "}
-        </p>
-      </section> */}
+      
     </>
   );
 }

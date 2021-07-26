@@ -10,17 +10,19 @@ import {
 import { Button } from "@material-ui/core";
 
 function AuthState() {
+  const provider = new firebase.auth.GoogleAuthProvider();
 
- const provider = new firebase.auth.GoogleAuthProvider();
+  let history = useHistory();
 
- let history = useHistory();
-
- const successLogin = () => {
-   history.push('/');
-  }
+  const successLogin = () => {
+    history.push("/");
+  };
 
   const handleGoogleSignIn = () => {
-    firebase.auth().signInWithPopup(provider).then(() => successLogin())
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() => successLogin());
   };
 
   const handleLogout = () => {
@@ -37,23 +39,23 @@ function AuthState() {
     <>
       <IfFirebaseUnAuthed>
         <FirebaseAuthConsumer>
-          {/* {({ firebase }) => ( */}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => handleGoogleSignIn()}
-            >
-              Sign in with Google
-            </Button>
-          {/* )} */}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => handleGoogleSignIn()}
+          >
+            Sign in with Google
+          </Button>
         </FirebaseAuthConsumer>
       </IfFirebaseUnAuthed>
       <IfFirebaseAuthed>
-        {/* {({ user, firebase }) => ( */}
-          <Button variant="contained" color="primary" onClick={() => handleLogout()}>
-            Logout
-          </Button>
-        {/* )} */}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => handleLogout()}
+        >
+          Logout
+        </Button>
       </IfFirebaseAuthed>
     </>
   );

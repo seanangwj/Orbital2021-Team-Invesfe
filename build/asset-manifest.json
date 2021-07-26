@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.550e595c.chunk.css",
-    "main.js": "/static/js/main.6436d097.chunk.js",
-    "main.js.map": "/static/js/main.6436d097.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.56667463.js",
-    "runtime-main.js.map": "/static/js/runtime-main.56667463.js.map",
-    "static/css/2.d45d6843.chunk.css": "/static/css/2.d45d6843.chunk.css",
-    "static/js/2.ef3ad485.chunk.js": "/static/js/2.ef3ad485.chunk.js",
-    "static/js/2.ef3ad485.chunk.js.map": "/static/js/2.ef3ad485.chunk.js.map",
-    "static/js/3.9ae743ee.chunk.js": "/static/js/3.9ae743ee.chunk.js",
-    "static/js/3.9ae743ee.chunk.js.map": "/static/js/3.9ae743ee.chunk.js.map",
+    "main.css": "/static/css/main.fbb73c50.chunk.css",
+    "main.js": "/static/js/main.07a5144f.chunk.js",
+    "main.js.map": "/static/js/main.07a5144f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.aa8d78f6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.aa8d78f6.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.0a4f7621.chunk.js": "/static/js/2.0a4f7621.chunk.js",
+    "static/js/2.0a4f7621.chunk.js.map": "/static/js/2.0a4f7621.chunk.js.map",
+    "static/js/3.3c94d826.chunk.js": "/static/js/3.3c94d826.chunk.js",
+    "static/js/3.3c94d826.chunk.js.map": "/static/js/3.3c94d826.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.d45d6843.chunk.css.map": "/static/css/2.d45d6843.chunk.css.map",
-    "static/css/main.550e595c.chunk.css.map": "/static/css/main.550e595c.chunk.css.map",
-    "static/js/2.ef3ad485.chunk.js.LICENSE.txt": "/static/js/2.ef3ad485.chunk.js.LICENSE.txt",
+    "static/css/2.4c97ca4f.chunk.css.map": "/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.fbb73c50.chunk.css.map": "/static/css/main.fbb73c50.chunk.css.map",
+    "static/js/2.0a4f7621.chunk.js.LICENSE.txt": "/static/js/2.0a4f7621.chunk.js.LICENSE.txt",
     "static/media/AboutUs.css": "/static/media/jewel.85703e21.jpg",
     "static/media/logo.4f727936.png": "/static/media/logo.4f727936.png",
     "static/media/sean.f5422f2b.jpg": "/static/media/sean.f5422f2b.jpg",
     "static/media/weehng.4fdc1f7e.jpg": "/static/media/weehng.4fdc1f7e.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.56667463.js",
-    "static/css/2.d45d6843.chunk.css",
-    "static/js/2.ef3ad485.chunk.js",
-    "static/css/main.550e595c.chunk.css",
-    "static/js/main.6436d097.chunk.js"
+    "static/js/runtime-main.aa8d78f6.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.0a4f7621.chunk.js",
+    "static/css/main.fbb73c50.chunk.css",
+    "static/js/main.07a5144f.chunk.js"
   ]
 }

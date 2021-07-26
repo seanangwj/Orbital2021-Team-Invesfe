@@ -17,7 +17,9 @@ function BudgetForm(props) {
         .child("budget")
         .on("value", (snapshot) => {
         const array = snapshot.val();
+        if(array != null){
         setState(array);
+        }
     });
   }}, []);
 
